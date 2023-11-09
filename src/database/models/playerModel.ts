@@ -10,7 +10,7 @@ const playerSchema = new Schema<Iplayer>({
     name:{
         type:String,
         required:true,
-        maxLength:[15,'Player Name cannot be more than 30 characters'],
+        maxLength:[15,'Player Name cannot be more than 15 characters'],
         unique:true
     },
     country:{

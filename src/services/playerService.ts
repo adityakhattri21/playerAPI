@@ -73,8 +73,8 @@ export const updatePlayerById = async (
 export const deletePlayerById =async (
     playerId:string
 )=>{
-    const data = await Player.findByIdAndDelete(playerId);
-    return data;
+    await Player.findByIdAndDelete(playerId);
+    return 'Deleted Successfully';
 }
 
 export const randomPlayerData = async ()=>{
