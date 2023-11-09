@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import {db} from "./config"
 
 const connectionString = process.env.MONGO_URI || '';//added since not working from env but will find a solution for this
 mongoose.connect(connectionString)
