@@ -15,8 +15,18 @@ score:string
     return player; 
 }
 
-export const getAllPlayers = async ()=>{
-    const players = await Player.find().sort({score:-1});
+export const getAllPlayers = async (sortIn:string)=>{
+    const players = await Player.find();
+    if(sortIn === 'asce'){
+        players.sort((a,b)=>{
+            return a.score-b.score;
+        })
+    }
+    else{
+        players.sort((a,b)=>{
+            return -1*(a.score-b.score);
+        })
+    }
     return players;
 }
 

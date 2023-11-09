@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import playerRoute from './routes/playerRoute';
 import './database/conn';
+import errorFunction from "./middleware/error";
 
 const app:Application = express();
 const port = process.env.PORT || 3000; 
@@ -13,7 +14,7 @@ app.get("/",(req:Request,res:Response)=>{
     res.status(200).json({message:"Working"});
 })
 
-
+app.use(errorFunction);
 app.listen(port,()=>{
     console.log(`Server is up at ${port}`);
 })

@@ -5,7 +5,8 @@ import asyncError from '../middleware/catchAsyncError';
 
 
 export const getPlayersController = asyncError(async (req:Request,res:Response,next:NextFunction)=>{
-  const data = await getAllPlayers();
+    const sort = req.query.sort as string || "desc";
+  const data = await getAllPlayers(sort);
    res.status(200).json(data);
 });
 
